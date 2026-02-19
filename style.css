@@ -1,0 +1,161 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Georgia', serif; 
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    position: relative;
+}
+
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+.heart {
+    position: absolute;
+    color: #ff69b4;
+    font-size: 20px;
+    animation: float 6s infinite linear;
+}
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px 50px;
+    position: relative;
+    z-index: 2;
+}
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.main-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    color: white;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from { text-shadow: 3px 3px 10px rgba(0,0,0,0.5), 0 0 20px #ff69b4; }
+    to { text-shadow: 3px 3px 10px rgba(0,0,0,0.5), 0 0 30px #ff1493; }
+}
+
+.anniversary-message {
+    background: rgba(255,255,255,0.95);
+    padding: 30px 40px;
+    border-radius: 25px;
+    display: inline-block;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    animation: celebratePulse 2s ease-in-out infinite;
+}
+@keyframes celebratePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+.today-celebration h2 {
+    color: #d63384;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+.today-celebration p {
+    color: #666;
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 0;
+}
+
+.gallery-section { 
+    padding: 80px 20px; 
+    max-width: 1400px; 
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+}
+.gallery-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+.gallery-item {
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: transform 0.4s, box-shadow 0.4s;
+    position: relative;
+}
+.gallery-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+.gallery-item img, .gallery-item video {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+.caption {
+    padding: 15px;
+    text-align: center;
+    font-style: italic;
+    color: #d63384;
+    font-weight: 500;
+}
+
+.message-section {
+    padding: 80px 20px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+.message-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.95);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+}
+.message-card h2 {
+    color: #d63384;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+.love-message {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 30px;
+}
+.sign-off {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .hero { padding: 60px 20px 30px; }
+    .gallery { grid-template-columns: 1fr; gap: 20px; }
+    .message-card { padding: 30px 20px; }
+    .today-celebration h2 { font-size: 1.5rem; }
+}
